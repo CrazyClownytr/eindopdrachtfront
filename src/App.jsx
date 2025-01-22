@@ -1,6 +1,29 @@
 import { useState } from 'react'
 import PlayerItem from './PlayerItem.jsx'
 import RandomPlayerButton from "./components/RandomPlayerButton.jsx";
+import PlayerList from "./components/PlayerList.jsx";
+// import {createBrowserRouter, RouterProvider} from "react-router";
+
+// const router = createBrowserRouter([
+//     {
+//         element: <Layout/>,
+//         children: [
+//             {
+//                 path: '/',
+//                 element: <Home/>,
+//             },
+//             {
+//                 path: '/create',
+//                 element: <CreateProduct/>,
+//             },
+//
+//             {
+//                 path: '/products/:id',
+//                 element: <ProductDetail/>,
+//             },
+//         ]
+//     }
+// ]);
 
 function App() {
     const InitialPlayers = [
@@ -33,6 +56,14 @@ function App() {
               </ul>
           </div>
           <RandomPlayerButton onButtonClick={addRandomPlayer}/>
+<div>
+    <h1>Voetbalspelers API</h1>
+    <PlayerList  setPlayers={players} />
+</div>
+
+{/*<div>*/}
+{/*    <RouterProvider router={router} />;*/}
+{/*</div>*/}
 
       </>
   )
