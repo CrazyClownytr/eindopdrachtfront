@@ -20,7 +20,7 @@ function CreatePlayer({onPlayerAdded}) {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://145.24.223.29:7213/players', {
+            const response = await fetch('http://145.24.223.29:8213/players', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,7 +1,7 @@
 // les2.1
 
 import {useEffect, useState} from "react";
-import PlayerItem from "../PlayerItem.jsx";
+import PlayerItem from "./PlayerItem.jsx";
 import CreatePlayer from "./CreatePlayer.jsx";
 
 function PlayerList() {
@@ -11,7 +11,7 @@ function PlayerList() {
     useEffect(() => {
         async function fetchPlayers() {
             try {
-                const response = await fetch('http://145.24.223.29:7213/players', {
+                const response = await fetch('http://145.24.223.29:8213/players', {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
@@ -35,13 +35,14 @@ function PlayerList() {
 
     console.log('players', players);
     return (
-        <div>
+        <div className="flex flex-wrap justify-center">
             {players.length ? (
                 <ul>
                     {players.map((player) => (
                         // <li key={player.id}> {player.name}</li>
                         <PlayerItem key={player.id} item={player}/>
                     ))}
+
                 </ul>
             ) : (
                 <p>Product laden...</p>

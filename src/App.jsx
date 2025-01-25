@@ -1,29 +1,35 @@
 import { useState } from 'react'
-import PlayerItem from './PlayerItem.jsx'
+import PlayerItem from './components/PlayerItem.jsx'
 import RandomPlayerButton from "./components/RandomPlayerButton.jsx";
 import PlayerList from "./components/PlayerList.jsx";
-// import {createBrowserRouter, RouterProvider} from "react-router";
+import {createBrowserRouter, RouterProvider} from "react-router";
+import CreatePlayer from "./components/CreatePlayer.jsx";
+import PlayerDetail from "./components/PlayerDetails.jsx";
+import Layout from "./components/Layout.jsx";
 
-// const router = createBrowserRouter([
-//     {
-//         element: <Layout/>,
-//         children: [
-//             {
-//                 path: '/',
-//                 element: <Home/>,
-//             },
-//             {
-//                 path: '/create',
-//                 element: <CreateProduct/>,
-//             },
-//
-//             {
-//                 path: '/products/:id',
-//                 element: <ProductDetail/>,
-//             },
-//         ]
-//     }
-// ]);
+const router = createBrowserRouter([
+    {
+        element: <Layout/>,
+        children: [
+            {
+                path: '/',
+                element: <PlayerList />,
+            },
+            {
+                path: '/create',
+                element: <CreatePlayer />,
+            },
+
+            {
+                path: '/player/:id',
+                element: <PlayerDetail />,
+            },
+
+
+        ]
+    }
+
+]);
 
 function App() {
     const InitialPlayers = [
@@ -46,24 +52,23 @@ function App() {
   }
   return (
       <>
-          <div>
-              <h2>Spelers</h2>
-              <ul>
-                  {players.map((player) => (
-                      // <li key={player.id}> {player.name}</li>
-                      <PlayerItem key={player.id} item={player} />
-                  ))}
-              </ul>
-          </div>
-          <RandomPlayerButton onButtonClick={addRandomPlayer}/>
-<div>
-    <h1>Voetbalspelers API</h1>
-    <PlayerList  setPlayers={players} />
-</div>
 
-{/*<div>*/}
-{/*    <RouterProvider router={router} />;*/}
-{/*</div>*/}
+          <RouterProvider router={router} />;
+
+          {/*<div>*/}
+          {/*    <h2>Spelers</h2>*/}
+          {/*    <ul>*/}
+          {/*        {players.map((player) => (*/}
+          {/*            // <li key={player.id}> {player.name}</li>*/}
+          {/*            <PlayerItem key={player.id} item={player}/>*/}
+          {/*        ))}*/}
+          {/*    </ul>*/}
+          {/*</div>*/}
+          {/*<RandomPlayerButton onButtonClick={addRandomPlayer}/>*/}
+          {/*<div>*/}
+          {/*    <h1>Voetbalspelers API</h1>*/}
+          {/*    <PlayerList setPlayers={players}/>*/}
+          {/*</div>*/}
 
       </>
   )
