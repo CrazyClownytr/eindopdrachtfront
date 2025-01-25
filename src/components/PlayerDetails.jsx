@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import {Link, useParams} from "react-router";
 import { useEffect, useState } from "react";
 
 function PlayerDetail() {
@@ -35,6 +35,10 @@ function PlayerDetail() {
             <h2>{player.name}</h2>
             <p>Club: {player.club}</p>
             <p>Land: {player.country}</p>
+
+            <Link to={`/player/${id}/edit`}>
+                <button>Speler bewerken</button>
+            </Link>
         </div>
     );
 }

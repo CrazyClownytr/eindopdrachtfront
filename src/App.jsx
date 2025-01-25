@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import PlayerItem from './components/PlayerItem.jsx'
-import RandomPlayerButton from "./components/RandomPlayerButton.jsx";
+// import PlayerItem from './components/PlayerItem.jsx'
+// import RandomPlayerButton from "./components/RandomPlayerButton.jsx";
 import PlayerList from "./components/PlayerList.jsx";
 import {createBrowserRouter, RouterProvider} from "react-router";
 import CreatePlayer from "./components/CreatePlayer.jsx";
 import PlayerDetail from "./components/PlayerDetails.jsx";
 import Layout from "./components/Layout.jsx";
+import UpdatePlayer from "./components/UpdatePlayer.jsx";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
             {
                 path: '/player/:id',
                 element: <PlayerDetail />,
+            },
+
+            {
+                path: '/player/:id/edit',
+                element: <UpdatePlayer />,
             },
 
 
