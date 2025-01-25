@@ -7,6 +7,7 @@ import CreatePlayer from "./components/CreatePlayer.jsx";
 import PlayerDetail from "./components/PlayerDetails.jsx";
 import Layout from "./components/Layout.jsx";
 import UpdatePlayer from "./components/UpdatePlayer.jsx";
+import DeletePlayer from "./components/DeletePlayer.jsx";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
             {
                 path: '/player/:id/edit',
                 element: <UpdatePlayer />,
+            },
+
+            {
+                path: '/player/:id/delete',
+                element: <DeletePlayer />,
             },
 
 

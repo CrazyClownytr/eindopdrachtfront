@@ -39,6 +39,10 @@ function PlayerDetail() {
             <Link to={`/player/${id}/edit`}>
                 <button>Speler bewerken</button>
             </Link>
+
+            <Link to={`/player/${id}/delete`}>
+                <button>Verwijder Speler</button>
+            </Link>
         </div>
     );
 }
