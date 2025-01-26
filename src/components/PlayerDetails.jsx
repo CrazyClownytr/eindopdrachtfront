@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 function PlayerDetail() {
     const { id } = useParams();
     const [player, setPlayer] = useState(null);
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchPlayer() {
+            setLoading(true);
             try {
+                //await new Promise(resolve => setTimeout(resolve, 3000)); //testing loading
                 const response = await fetch(`http://145.24.223.29:8213/players/${id}`, {
 
                     method: 'GET',
@@ -17,20 +20,30 @@ function PlayerDetail() {
                     },
                 });
 
+                if (!response.ok) {
+                    throw new Error(`Speler met ID ${id} niet gevonden.`);
+                }
+
                 const data = await response.json();
                 setPlayer(data);
 
             } catch (error) {
                 console.error("Fout bij het ophalen van de speler:", error);
-                // setLoading(false);
+                setError(error.message);
+            } finally { //zorgt ervoor dat loading altijd uitgezet wordt
+                setLoading(false);
             }
         }
         fetchPlayer();
     }, [id]);
 
-    // if (loading) {
-    //     return <p>Speler laden...</p>;
-    // }
+    if (loading) {
+        return <p>Speler laden...</p>;
+    }
+
+    if (error) {
+        return <p style={{ color: "red" }}>{error}</p>;  // ✅ Correcte foutmelding
+    }
 
     if (!player) {
         return <p>Speler niet gevonden.</p>;
