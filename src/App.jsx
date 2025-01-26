@@ -7,6 +7,7 @@ import UpdatePlayer from "./components/UpdatePlayer.jsx";
 import DeletePlayer from "./components/DeletePlayer.jsx";
 import NotFoundError from "./components/NotFoundError.jsx";
 
+
 const router = createBrowserRouter([
     {
         element: <Layout/>,
@@ -50,8 +51,10 @@ const router = createBrowserRouter([
 function App() {
   return (
       <>
-          <RouterProvider router={router} />
+          <RouterProvider router={router}/>
       </>
+
+
   )
 }
 

@@ -42,7 +42,7 @@ function PlayerDetail() {
     }
 
     if (error) {
-        return <p style={{ color: "red" }}>{error}</p>;  // ✅ Correcte foutmelding
+        return <p style={{ color: "red" }}>{error}</p>;
     }
 
     if (!player) {

@@ -1,20 +1,17 @@
-import {Outlet} from 'react-router';
-import {Link} from "react-router";
-
-
+import { Outlet, Link } from "react-router";
 
 function Layout() {
     return (
-        <div>
-            <header>
-                <nav>
-                    <Link to="/">Home</Link>
-                    {/*<Link to="/players">Players</Link>*/}
-                    <Link to="/create">Create New Player</Link>
-                </nav>
-            </header>
-            <main>
-            <Outlet/>
+        <div className="min-h-screen bg-gray-100">
+            <nav className="bg-blue-600 p-4 shadow-lg">
+                    <div className="space-x-4">
+                        <Link to="/" className="text-white hover:underline">Home</Link>
+                        <Link to="/create" className="text-white hover:underline">Nieuwe Speler</Link>
+                    </div>
+            </nav>
+
+            <main className="container mx-auto p-6">
+                <Outlet />
             </main>
         </div>
     );

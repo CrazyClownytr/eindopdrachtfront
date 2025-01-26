@@ -26,26 +26,18 @@ function PlayerList() {
         fetchPlayers();
     }, []);
 
-    // const handlePlayerAdded = (newPlayer) => {
-    //     setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
-    // };
-
     console.log('players', players);
     return (
-        <div className="flex flex-wrap justify-center">
+        <div>
             {players.length ? (
-                <ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {players.map((player) => (
-                        // <li key={player.id}> {player.name}</li>
                         <PlayerItem key={player.id} item={player}/>
                     ))}
-
-                </ul>
+                </div>
             ) : (
-                <p>Product laden...</p>
+                <p className="text-center text-gray-600">Players laden...</p>
             )}
-
-            {/*<CreatePlayer onPlayerAdded={handlePlayerAdded} />*/}
         </div>
 
 
