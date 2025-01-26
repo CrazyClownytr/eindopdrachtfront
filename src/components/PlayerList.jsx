@@ -1,8 +1,5 @@
-// les2.1
-
 import {useEffect, useState} from "react";
 import PlayerItem from "./PlayerItem.jsx";
-import CreatePlayer from "./CreatePlayer.jsx";
 
 function PlayerList() {
 
@@ -29,9 +26,9 @@ function PlayerList() {
         fetchPlayers();
     }, []);
 
-    const handlePlayerAdded = (newPlayer) => {
-        setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
-    };
+    // const handlePlayerAdded = (newPlayer) => {
+    //     setPlayers((prevPlayers) => [...prevPlayers, newPlayer]);
+    // };
 
     console.log('players', players);
     return (
@@ -48,7 +45,7 @@ function PlayerList() {
                 <p>Product laden...</p>
             )}
 
-            <CreatePlayer onPlayerAdded={handlePlayerAdded} />
+            {/*<CreatePlayer onPlayerAdded={handlePlayerAdded} />*/}
         </div>
 
 

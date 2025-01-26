@@ -1,11 +1,13 @@
 import {useState} from 'react';
+import {useNavigate} from "react-router";
 
-function CreatePlayer({onPlayerAdded}) {
+function CreatePlayer() {
     const [formData, setFormData] = useState({
         name: '',
         club: '',
         country: '',
     });
+    const navigate = useNavigate();
 
     // Generieke handler voor het bijwerken van de state
     const handleInputChange = (event) => {
@@ -32,15 +34,21 @@ function CreatePlayer({onPlayerAdded}) {
             const newPlayer = await response.json();
             console.log('Speler toegevoegd:', newPlayer);
 
-            onPlayerAdded(newPlayer);
 
+            // Reset het formulier
             setFormData({ name: '', club: '', country: '' });
+
+            // Navigeer terug naar de homepagina
+            navigate("/");
 
         } catch (error) {
             console.error('Fout bij het toevoegen van de speler:', error);
         }
     };
+
     return (
+
+
         <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="name">Naam:</label>
@@ -73,6 +81,7 @@ function CreatePlayer({onPlayerAdded}) {
                     onChange={handleInputChange}
                 />
             </div>
+
             <button type="submit">Verzenden</button>
         </form>
     );
