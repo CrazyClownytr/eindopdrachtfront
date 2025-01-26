@@ -68,44 +68,52 @@ function UpdatePlayer() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Speler bewerken</h2>
+        <form onSubmit={handleSubmit}
+              className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+            <h2 className="text-3xl font-semibold text-blue-600 mb-6 text-center">Speler bewerken</h2>
 
-            <div>
-                <label htmlFor="name">Naam:</label>
+            <div className="mb-4">
+                <label htmlFor="name" className="block text-xl font-medium text-gray-700 mb-2">Naam:</label>
                 <input
                     type="text"
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
+                    className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
             </div>
 
-            <div>
-                <label htmlFor="club">Club:</label>
+            <div className="mb-4">
+                <label htmlFor="club" className="block text-xl font-medium text-gray-700 mb-2">Club:</label>
                 <input
                     type="text"
                     id="club"
                     name="club"
                     value={formData.club}
                     onChange={handleInputChange}
+                    className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
             </div>
 
-            <div>
-                <label htmlFor="country">Land:</label>
+            <div className="mb-6">
+                <label htmlFor="country" className="block text-xl font-medium text-gray-700 mb-2">Land:</label>
                 <input
                     type="text"
                     id="country"
                     name="country"
                     value={formData.country}
                     onChange={handleInputChange}
+                    className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
             </div>
 
-            <button type="submit">Opslaan</button>
+            <button type="submit"
+                    className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-all">
+                Opslaan
+            </button>
         </form>
+
     );
 }
 

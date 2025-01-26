@@ -29,8 +29,6 @@ function DeletePlayer() {
     }, [id]);
 
     const handleDelete = async () => {
-        if (!window.confirm("Weet je zeker dat je deze speler wilt verwijderen?")) return;
-
         try {
             const response = await fetch(`http://145.24.223.29:8213/players/${id}`, {
                 method: "DELETE",
@@ -57,18 +55,36 @@ function DeletePlayer() {
     }
 
     return (
-        <div>
-            <h2>{player.name}</h2>
-            <p>Club: {player.club}</p>
-            <p>Land: {player.country}</p>
+        <div
+            className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+            <h2 className="text-3xl font-semibold text-blue-600 mb-4 text-center">{player.name}</h2>
+            <p className="text-xl text-gray-700 mb-4">Club: {player.club}</p>
+            <p className="text-xl text-gray-700 mb-6">Land: {player.country}</p>
 
-            <button onClick={handleDelete} style={{ backgroundColor: "red", color: "white" }}>
-                Bevestig Verwijderen
-            </button>
+            <div
+                className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                <h2 className="text-3xl font-semibold text-blue-600 mb-4 text-center">Ben je zeker?</h2>
 
-            <button onClick={() => navigate(-1)} style={{ marginLeft: "10px" }}>
-                Annuleren
-            </button>
+                <div className="flex justify-center space-x-4">
+
+                    <button
+                        onClick={handleDelete}
+                        className="bg-red-500 text-white p-3 rounded-md hover:bg-red-600 transition-all w-1/2"
+                    >
+                        Ja
+                    </button>
+
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="bg-gray-500 text-white p-3 rounded-md hover:bg-gray-600 transition-all w-1/2"
+                    >
+                        Nee
+                    </button>
+                </div>
+
+            </div>
+
+
         </div>
     );
 }

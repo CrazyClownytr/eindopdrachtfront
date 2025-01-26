@@ -42,7 +42,20 @@ function PlayerDetail() {
     }
 
     if (error) {
-        return <p style={{ color: "red" }}>{error}</p>;
+        return (
+            <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                <h2 className="text-3xl font-semibold text-red-500 mb-4 text-center">Fout!</h2>
+                <p className="text-xl text-gray-700 mb-6 text-center">{error}</p>
+                <div className="flex justify-center space-x-4">
+                    <Link
+                        to="/"
+                        className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-all w-full sm:w-auto text-center"
+                    >
+                        Terug naar Home
+                    </Link>
+                </div>
+            </div>
+        );
     }
 
     if (!player) {
@@ -50,22 +63,32 @@ function PlayerDetail() {
     }
 
     return (
-        <div>
+        <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+            <h2 className="text-3xl font-semibold text-blue-600 mb-4 text-center">{player.name}</h2>
 
-            <h2>{player.name}</h2>
-            <p>Club: {player.club}</p>
-            <p>Land: {player.country}</p>
+            <p className="text-xl mb-4">
+                <strong>Club:</strong> {player.club}
+            </p>
+            <p className="text-xl mb-6">
+                <strong>Land:</strong> {player.country}
+            </p>
 
+            <div className="flex justify-center gap-4">
+                <Link to={`/player/edit/${id}`}>
+                    <button className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-all">
+                        Speler bewerken
+                    </button>
+                </Link>
 
-            <Link to={`/player/edit/${id}`}>
-                <button>Speler bewerken</button>
-            </Link>
-
-            <Link to={`/player/delete/${id}`}>
-                <button>Verwijder Speler</button>
-            </Link>
+                <Link to={`/player/delete/${id}`}>
+                    <button className="bg-red-500 text-white p-3 rounded-md hover:bg-red-600 transition-all">
+                        Verwijder Speler
+                    </button>
+                </Link>
+            </div>
         </div>
     );
+
 }
 
 export default PlayerDetail;
