@@ -5,6 +5,7 @@ import PlayerDetail from "./components/PlayerDetails.jsx";
 import Layout from "./components/Layout.jsx";
 import UpdatePlayer from "./components/UpdatePlayer.jsx";
 import DeletePlayer from "./components/DeletePlayer.jsx";
+import NotFoundError from "./components/NotFoundError.jsx";
 
 const router = createBrowserRouter([
     {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
                 path: '/',
                 element: <PlayerList />,
             },
+
             {
                 path: '/create',
                 element: <CreatePlayer />,
@@ -32,6 +34,11 @@ const router = createBrowserRouter([
             {
                 path: '/player/delete/:id',
                 element: <DeletePlayer />,
+            },
+
+            {
+                path: '*',
+                element: <NotFoundError />,
             },
 
 
