@@ -2,22 +2,21 @@ import { useEffect, useState } from "react";
 import {useNavigate, useParams} from "react-router-dom";
 
 function UpdatePlayer() {
-    const { id } = useParams(); // Haal het ID uit de URL
-     const navigate = useNavigate(); // Om terug te navigeren na de update
+    const { id } = useParams();
+     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         name: "",
         club: "",
         country: "",
     });
 
-    // 🟢 Haal de huidige speler op en vul het formulier vooraf in
     useEffect(() => {
         async function fetchPlayer() {
             try {
                 const response = await fetch(`http://145.24.223.29:8213/players/${id}`, {
                     method: "GET",
                     headers: {
-                        "Accept": "application/json", // 👈 Voegt de juiste accept-header toe
+                        "Accept": "application/json",
                     },
                 });
 
@@ -26,7 +25,7 @@ function UpdatePlayer() {
                 }
 
                 const data = await response.json();
-                setFormData(data); // ✅ Vul het formulier correct in
+                setFormData(data);
 
             } catch (error) {
                 console.error("Fout bij ophalen van speler:", error);
@@ -36,13 +35,11 @@ function UpdatePlayer() {
     }, [id]);
 
 
-    // 🔄 Verwerk veranderingen in het formulier
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    // 🟢 PUT-verzoek versturen om de speler te updaten
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -58,7 +55,7 @@ function UpdatePlayer() {
 
             if (response.ok) {
                 console.log("Speler succesvol bijgewerkt!");
-                 navigate(`/player/${id}`); // Ga terug naar de detailpagina
+                 navigate(`/player/${id}`);
             } else {
                 console.error("Fout bij het updaten van de speler:", response.statusText);
             }

@@ -9,7 +9,6 @@ function CreatePlayer() {
     });
     const navigate = useNavigate();
 
-    // Generieke handler voor het bijwerken van de state
     const handleInputChange = (event) => {
         const {name, value} = event.target;
         setFormData({
@@ -35,10 +34,10 @@ function CreatePlayer() {
             console.log('Speler toegevoegd:', newPlayer);
 
 
-            // Reset het formulier
+            // reset form
             setFormData({ name: '', club: '', country: '' });
 
-            // Navigeer terug naar de homepagina
+
             navigate("/");
 
         } catch (error) {
