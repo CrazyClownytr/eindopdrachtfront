@@ -82,9 +82,16 @@ function PlayerDetail() {
 
                 <Link to={`/player/delete/${id}`}>
                     <button className="bg-red-500 text-white p-3 rounded-md hover:bg-red-600 transition-all">
-                        Verwijder Speler
+                        Speler verwijderen
                     </button>
                 </Link>
+
+                <Link to="/">
+                    <button className="bg-gray-500 text-white p-3 rounded-md hover:bg-gray-600 transition-all w-full sm:w-auto">
+                        Terug naar Home
+                    </button>
+                </Link>
+
             </div>
         </div>
     );
