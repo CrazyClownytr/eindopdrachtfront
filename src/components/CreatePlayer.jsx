@@ -38,7 +38,7 @@ function CreatePlayer() {
             setFormData({ name: '', club: '', country: '' });
 
 
-            navigate("/");
+            navigate("/players");
 
         } catch (error) {
             console.error('Fout bij het toevoegen van de speler:', error);

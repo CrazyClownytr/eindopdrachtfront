@@ -48,7 +48,7 @@ function PlayerDetail() {
                 <p className="text-xl text-gray-700 mb-6 text-center">{error}</p>
                 <div className="flex justify-center space-x-4">
                     <Link
-                        to="/"
+                        to="/players"
                         className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-all w-full sm:w-auto text-center"
                     >
                         Terug naar Home
@@ -86,9 +86,9 @@ function PlayerDetail() {
                     </button>
                 </Link>
 
-                <Link to="/">
+                <Link to="/players">
                     <button className="bg-gray-500 text-white p-3 rounded-md hover:bg-gray-600 transition-all w-full sm:w-auto">
-                        Terug naar Home
+                        Terug naar Players
                     </button>
                 </Link>
 

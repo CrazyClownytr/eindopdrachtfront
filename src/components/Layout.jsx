@@ -6,6 +6,7 @@ function Layout() {
             <nav className="bg-blue-600 p-4 shadow-lg">
                     <div className="space-x-4">
                         <Link to="/" className="text-white hover:underline">Home</Link>
+                        <Link to="/players" className="text-white hover:underline">Players</Link>
                         <Link to="/create" className="text-white hover:underline">Nieuwe Speler</Link>
                     </div>
             </nav>

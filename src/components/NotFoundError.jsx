@@ -7,7 +7,7 @@ function NotFound() {
             <p className="text-xl text-gray-700 mb-6 text-center">De pagina die je zoekt bestaat niet.</p>
             <div className="flex justify-center space-x-4">
                 <Link
-                    to="/"
+                    to="/players"
                     className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-all w-full sm:w-auto text-center"
                 >
                     Terug naar Home

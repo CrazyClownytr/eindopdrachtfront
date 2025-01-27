@@ -43,7 +43,7 @@ function DeletePlayer() {
             }
 
             console.log("Speler verwijderd");
-            navigate("/");
+            navigate("/players");
 
         } catch (error) {
             console.error("Fout bij verwijderen van speler:", error);

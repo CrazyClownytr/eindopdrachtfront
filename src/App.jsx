@@ -6,14 +6,21 @@ import Layout from "./components/Layout.jsx";
 import UpdatePlayer from "./components/UpdatePlayer.jsx";
 import DeletePlayer from "./components/DeletePlayer.jsx";
 import NotFoundError from "./components/NotFoundError.jsx";
+import Home from "./components/Home.jsx";
 
 
 const router = createBrowserRouter([
     {
         element: <Layout/>,
         children: [
+
             {
                 path: '/',
+                element: <Home />,
+            },
+
+            {
+                path: '/players',
                 element: <PlayerList />,
             },
 
